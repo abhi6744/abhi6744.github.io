@@ -7,6 +7,7 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let toastTimer;
 
   /* ---------- Theme ---------- */
   const root = document.documentElement;
@@ -211,16 +212,47 @@
     }
   }
 
-  /* ---------- Scroll-to-unlock résumé ---------- */
+  /* ---------- Taped parcel + résumé popup ---------- */
+  const resumeModal = $("#resumeModal");
+  const modalClose = $("#modalClose");
+  let lastFocused = null;
+
+  function openResumeModal() {
+    if (!resumeModal || !resumeModal.hidden) return;
+    lastFocused = document.activeElement;
+    resumeModal.hidden = false;
+    void resumeModal.offsetWidth;
+    document.body.classList.add("modal-open");
+    resumeModal.classList.add("open");
+    setTimeout(() => modalClose && modalClose.focus(), 120);
+  }
+  function closeResumeModal() {
+    if (!resumeModal || resumeModal.hidden) return;
+    resumeModal.classList.remove("open");
+    document.body.classList.remove("modal-open");
+    setTimeout(() => {
+      resumeModal.hidden = true;
+      if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+    }, 350);
+  }
+  if (resumeModal) {
+    modalClose.addEventListener("click", closeResumeModal);
+    $$("[data-close-modal]", resumeModal).forEach((el) => el.addEventListener("click", closeResumeModal));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeResumeModal(); });
+  }
+
   const unlockTrack = $("#unlockTrack");
   if (unlockTrack) {
-    const vault = $("#vault");
-    const ring = $("#unlockRing");
+    const parcel = $("#parcel");
+    const parcelBox = $("#parcelBox");
     const unlockBar = $("#unlockProgress");
     const unlockPercent = $("#unlockPercent");
     const vaultStatus = $("#vaultStatus");
-    const vaultContent = $(".vault-content", vault);
+    const unlockedActions = $("#unlockedActions");
+    const reopenBtn = $("#reopenResume");
     let unlocked = false;
+
+    if (reopenBtn) reopenBtn.addEventListener("click", openResumeModal);
 
     function updateUnlock() {
       if (unlocked) return;
@@ -229,20 +261,21 @@
       const p = Math.max(0, Math.min(1, -rect.top / total));
       const value = Math.round(p * 100);
 
-      ring.style.setProperty("--p", String(value));
+      parcel.style.setProperty("--p", p.toFixed(3));
       unlockBar.style.width = value + "%";
-      unlockPercent.textContent = value + "% unlocked";
-      vault.classList.toggle("shaking", p > 0.15 && p < 0.95);
-      if (p > 0.55) vaultStatus.textContent = "Almost there...";
+      unlockPercent.textContent = value + "% untied";
+      parcelBox.classList.toggle("shaking", p > 0.12 && p < 0.9);
+      if (p > 0.5) vaultStatus.textContent = "Almost untied...";
+      if (p > 0.8) vaultStatus.textContent = "Hold on...";
 
       if (p >= 0.985) {
         unlocked = true;
-        vault.classList.remove("shaking");
-        vault.classList.add("unlocked", "celebrate");
-        vaultContent.setAttribute("aria-hidden", "false");
-        vaultStatus.textContent = "Résumé unlocked";
-        showToast("Résumé unlocked 🔓");
-        setTimeout(() => vault.classList.remove("celebrate"), 800);
+        parcelBox.classList.remove("shaking");
+        parcel.classList.add("unlocked");
+        unlockedActions.hidden = false;
+        vaultStatus.textContent = "Unsealed";
+        showToast("Résumé unsealed 🔓");
+        openResumeModal();
       }
     }
 
@@ -360,7 +393,6 @@
   });
 
   /* ---------- Toast + year ---------- */
-  let toastTimer;
   function showToast(msg) {
     const toast = $("#toast");
     toast.textContent = msg;

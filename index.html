@@ -527,36 +527,33 @@
         <div class="unlock-sticky">
           <div class="container unlock-inner">
             <span class="eyebrow">08 / Scroll to unlock</span>
-            <h2>Keep scrolling. <span class="gradient-text">Your reward is inside.</span></h2>
+            <h2>Keep scrolling. <span class="gradient-text">Untie the seal.</span></h2>
 
-            <div class="vault" id="vault">
-              <div class="vault-face vault-locked">
-                <div class="unlock-ring" id="unlockRing" style="--p:0">
-                  <div class="unlock-ring-inner">
-                    <svg class="icon lock-icon"><use href="#i-lock"></use></svg>
-                    <svg class="icon unlock-icon"><use href="#i-unlock"></use></svg>
-                  </div>
+            <div class="parcel-wrap" id="parcel" style="--p:0">
+              <div class="parcel-glow" aria-hidden="true"></div>
+
+              <div class="parcel" id="parcelBox" aria-label="Résumé parcel sealed with tape">
+                <div class="parcel-lid">
+                  <span class="parcel-label">RÉSUMÉ · ABHINAV G</span>
+                  <svg class="icon parcel-lock"><use href="#i-lock"></use></svg>
+                  <strong id="vaultStatus">Sealed shut</strong>
+                  <span class="parcel-hint">Scroll to untie the tape</span>
                 </div>
-                <strong id="vaultStatus">Résumé locked</strong>
-                <span>Scroll continuously to break the seal</span>
-                <div class="unlock-bar"><span id="unlockProgress"></span></div>
-                <small id="unlockPercent">0% unlocked</small>
+                <div class="tape tape-h" aria-hidden="true"></div>
+                <div class="tape tape-v" aria-hidden="true"></div>
+                <div class="knot" aria-hidden="true">
+                  <span class="bow bow-l"></span><span class="bow bow-r"></span><span class="knot-core"></span>
+                </div>
               </div>
 
-              <div class="vault-face vault-content" aria-hidden="true">
-                <span class="unlocked-badge"><svg class="icon icon-sm"><use href="#i-check"></use></svg> Unlocked</span>
-                <h3>Abhinav G</h3>
-                <p class="vault-role">AI / ML Engineer · RAG · Computer Vision · Security</p>
-                <div class="vault-facts">
-                  <span><strong>5+</strong> projects</span>
-                  <span><strong>0.92</strong> F1 score</span>
-                  <span><strong>3.68</strong> CGPA</span>
-                </div>
-                <p class="vault-contact">abhinavgireesh013@gmail.com · +91 8086201772</p>
-                <div class="vault-actions">
-                  <a href="assets/Abhinav_G_Resume.pdf" target="_blank" class="btn btn-primary">Download résumé <svg class="icon icon-sm"><use href="#i-download"></use></svg></a>
-                  <a href="#contact" class="btn btn-outline">Contact me</a>
-                </div>
+              <div class="unlock-meter">
+                <div class="unlock-bar" aria-hidden="true"><span id="unlockProgress"></span></div>
+                <small id="unlockPercent">0% untied</small>
+              </div>
+
+              <div class="unlocked-actions" id="unlockedActions" hidden>
+                <span class="unlocked-badge"><svg class="icon icon-sm"><use href="#i-check"></use></svg> Unsealed</span>
+                <button class="btn btn-primary" id="reopenResume">View résumé <svg class="icon icon-sm"><use href="#i-external"></use></svg></button>
               </div>
             </div>
 
@@ -610,6 +607,29 @@
   </footer>
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg class="icon"><use href="#i-arrow-up"></use></svg></button>
+  <!-- ===== Résumé popup ===== -->
+  <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="document">
+      <div class="modal-head">
+        <div>
+          <span class="eyebrow">Unsealed</span>
+          <h3 id="resumeModalTitle">Abhinav G — Résumé</h3>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close résumé popup">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe src="assets/Abhinav_G_Resume.pdf" title="Abhinav G résumé PDF"></iframe>
+      </div>
+      <div class="modal-foot">
+        <a href="assets/Abhinav_G_Resume.pdf" target="_blank" class="btn btn-primary">Open PDF in new tab <svg class="icon icon-sm"><use href="#i-external"></use></svg></a>
+        <button class="btn btn-outline" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/js/script.js"></script>
