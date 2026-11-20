@@ -529,26 +529,30 @@
             <span class="eyebrow">08 / Scroll to unlock</span>
             <h2>Keep scrolling. <span class="gradient-text">Untie the seal.</span></h2>
 
-            <div class="parcel-wrap" id="parcel" style="--p:0">
+            <div class="parcel-wrap" id="parcel" style="--p:0; --knot:0; --slip:0">
               <div class="parcel-glow" aria-hidden="true"></div>
 
-              <div class="parcel" id="parcelBox" aria-label="Résumé parcel sealed with tape">
+              <div class="parcel" id="parcelBox" aria-label="Résumé parcel tied shut with rope">
                 <div class="parcel-lid">
                   <span class="parcel-label">RÉSUMÉ · ABHINAV G</span>
                   <svg class="icon parcel-lock"><use href="#i-lock"></use></svg>
                   <strong id="vaultStatus">Sealed shut</strong>
-                  <span class="parcel-hint">Scroll to untie the tape</span>
+                  <span class="parcel-hint">Keep scrolling to untie the rope</span>
                 </div>
-                <div class="tape tape-h" aria-hidden="true"></div>
-                <div class="tape tape-v" aria-hidden="true"></div>
-                <div class="knot" aria-hidden="true">
-                  <span class="bow bow-l"></span><span class="bow bow-r"></span><span class="knot-core"></span>
+                <div class="rope rope-h" aria-hidden="true"></div>
+                <div class="rope rope-v" aria-hidden="true"></div>
+                <div class="knot" id="knot" aria-hidden="true">
+                  <span class="haptic-ring"></span>
+                  <span class="bow bow-l"></span><span class="bow bow-r"></span>
+                  <span class="tail tail-l"></span><span class="tail tail-r"></span>
+                  <span class="knot-core"></span>
                 </div>
               </div>
 
               <div class="unlock-meter">
                 <div class="unlock-bar" aria-hidden="true"><span id="unlockProgress"></span></div>
                 <small id="unlockPercent">0% untied</small>
+                <button type="button" class="haptic-toggle" id="hapticToggle" hidden>📳 Tap to enable haptics</button>
               </div>
 
               <div class="unlocked-actions" id="unlockedActions" hidden>

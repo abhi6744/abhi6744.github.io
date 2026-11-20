@@ -245,14 +245,42 @@
   if (unlockTrack) {
     const parcel = $("#parcel");
     const parcelBox = $("#parcelBox");
+    const knot = $("#knot");
     const unlockBar = $("#unlockProgress");
     const unlockPercent = $("#unlockPercent");
     const vaultStatus = $("#vaultStatus");
     const unlockedActions = $("#unlockedActions");
     const reopenBtn = $("#reopenResume");
+    const hapticToggle = $("#hapticToggle");
+    const canVibrate = "vibrate" in navigator && !reducedMotion;
     let unlocked = false;
+    let hapticsArmed = false;
+    let lastTick = -1;
+    let lastLabel = "";
 
+    // Browsers only allow vibration after a real user gesture, so arm it with a tap.
+    if (hapticToggle && canVibrate) {
+      hapticToggle.hidden = false;
+      hapticToggle.addEventListener("click", () => {
+        hapticsArmed = true;
+        hapticToggle.classList.add("on");
+        hapticToggle.textContent = "📳 Haptics on — feel each pull";
+        try { navigator.vibrate(14); } catch (_) { /* unsupported */ }
+      });
+    }
     if (reopenBtn) reopenBtn.addEventListener("click", openResumeModal);
+
+    function hapticTick(step) {
+      if (reducedMotion) return;
+      if (knot) {
+        knot.classList.remove("tick");
+        void knot.offsetWidth;
+        knot.classList.add("tick");
+      }
+      if (canVibrate && hapticsArmed) {
+        try { navigator.vibrate(step % 3 === 2 ? [12, 26, 14] : 9); } catch (_) { /* not permitted */ }
+      }
+    }
 
     function updateUnlock() {
       if (unlocked) return;
@@ -260,17 +288,36 @@
       const total = Math.max(unlockTrack.offsetHeight - window.innerHeight, 1);
       const p = Math.max(0, Math.min(1, -rect.top / total));
       const value = Math.round(p * 100);
+      const clamp = (v) => Math.max(0, Math.min(1, v));
+      const smooth = (v) => v * v * (3 - 2 * v);
 
+      // staged motion: bow loosens first, then rope slips free
       parcel.style.setProperty("--p", p.toFixed(3));
+      parcel.style.setProperty("--knot", smooth(clamp((p - 0.04) / 0.60)).toFixed(3));
+      parcel.style.setProperty("--slip", smooth(clamp((p - 0.45) / 0.55)).toFixed(3));
       unlockBar.style.width = value + "%";
       unlockPercent.textContent = value + "% untied";
-      parcelBox.classList.toggle("shaking", p > 0.12 && p < 0.9);
-      if (p > 0.5) vaultStatus.textContent = "Almost untied...";
-      if (p > 0.8) vaultStatus.textContent = "Hold on...";
+      parcelBox.classList.toggle("shaking", p > 0.08 && p < 0.96);
+
+      const step = Math.floor(p * 12);
+      if (step > 0 && p < 1 && step !== lastTick) {
+        lastTick = step;
+        hapticTick(step);
+      }
+
+      const label = p < 0.16 ? "Sealed shut"
+        : p < 0.45 ? "Loosening the knot..."
+        : p < 0.80 ? "Pulling the rope free..."
+        : "Almost free...";
+      if (label !== lastLabel && vaultStatus) {
+        lastLabel = label;
+        vaultStatus.textContent = label;
+      }
 
       if (p >= 0.985) {
         unlocked = true;
         parcelBox.classList.remove("shaking");
+        if (canVibrate && hapticsArmed) { try { navigator.vibrate([18, 40, 26]); } catch (_) {} }
         parcel.classList.add("unlocked");
         unlockedActions.hidden = false;
         vaultStatus.textContent = "Unsealed";

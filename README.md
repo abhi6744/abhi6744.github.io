@@ -10,7 +10,7 @@ A clean, light-by-default, interactive single-page portfolio built with plain HT
 - **Animated hero** with a rotating role line, floating tech chips and scrolling stat counters.
 - **Sticky navigation** with active-section highlighting, a "More" dropdown and a mobile menu.
 - **CRED-style scroll narrative**: four chapters pinned in place and disclosed one by one as you scroll.
-- **Scroll-to-unlock résumé**: a parcel sealed with tape that visibly unties as you scroll; at 100% it pops the résumé into a closable modal with a "view again" button. Escape, the backdrop, and the close button all dismiss it.
+- **Scroll-to-unlock résumé**: a parcel wrapped in a textured rope with a bow and loose ends. Scrolling progressively loosens the bow, pulls the rope free, and trembles the box; haptic ticks fire on supported devices after a one-tap opt-in (browsers require a gesture). At 100% it pops the résumé into a closable modal with a "view again" button. Escape, the backdrop, and the close button all dismiss it.
 - **Filterable project grid** (RAG & LLM / Computer Vision / Security) with expandable details and direct links to the real GitHub repos.
 - **Experience timeline**, tabbed skill categories, project-based usage bars, certifications, achievements and education timeline.
 - **Contact section** with copy-to-clipboard email and a form that opens the visitor's email app with a prefilled message.

@@ -554,26 +554,70 @@ img { max-width: 100%; }
 .parcel-lock { width: 34px; height: 34px; color: var(--primary); transform: rotate(calc(var(--p) * 150deg)) scale(calc(1 - var(--p) * .35)); opacity: calc(1 - var(--p) * .85); }
 .parcel-lid strong { font-size: 17px; }
 .parcel-hint { font-size: 12px; color: var(--muted); }
-.tape {
-  position: absolute; z-index: 2; background: repeating-linear-gradient(45deg, #fcd34d, #fcd34d 9px, #fbbf24 9px, #fbbf24 18px);
-  box-shadow: 0 2px 7px rgba(180, 120, 0, .25);
+/* twisted rope wrapping the box */
+.rope { position: absolute; z-index: 2; pointer-events: none; border-radius: 999px; }
+.rope::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: repeating-linear-gradient(100deg, #f6d78e 0px, #f0c46b 4px, #cf9a3c 8px, #a9731f 12px, #f6d78e 18px);
+  border: 1px solid rgba(140, 88, 15, .5);
+  box-shadow: inset 0 3px 4px rgba(255, 246, 214, .7), inset 0 -5px 7px rgba(110, 65, 0, .45), 0 5px 12px rgba(110, 65, 0, .3);
 }
-.tape-h { left: -16px; right: -16px; top: 50%; height: 36px; margin-top: -18px; transform-origin: left center; transform: scaleX(calc(1 - var(--p))); }
-.tape-v { top: -16px; bottom: -16px; left: 50%; width: 36px; margin-left: -18px; transform-origin: top center; transform: scaleY(calc(1 - var(--p))); }
+.rope-h {
+  left: -14px; right: -14px; top: 50%; height: 30px; margin-top: -15px;
+  transform: translateX(calc(var(--slip) * 135%));
+  opacity: calc(1 - var(--slip) * 1.2);
+}
+.rope-v {
+  top: -14px; bottom: -14px; left: 50%; width: 30px; margin-left: -15px;
+  transform: translateY(calc(var(--slip) * -135%));
+  opacity: calc(1 - var(--slip) * 1.2);
+}
+/* the bow that slowly unwinds */
 .knot {
-  position: absolute; z-index: 3; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px;
-  transform: rotate(calc(var(--p) * 230deg)) scale(calc(1 - var(--p) * .7));
-  opacity: calc(1 - var(--p) * 1.35);
+  position: absolute; z-index: 4; left: 50%; top: 50%; width: 112px; height: 88px; margin: -44px 0 0 -56px;
+  transform: rotate(calc(var(--knot) * -28deg)) scale(calc(1 - var(--slip) * .5));
+  opacity: calc(1 - var(--slip) * 1.1);
 }
-.bow { position: absolute; top: 14px; width: 28px; height: 22px; border: 5px solid #fbbf24; border-radius: 50%; }
-.bow-l { left: 1px; transform: rotate(-28deg); }
-.bow-r { right: 1px; transform: rotate(28deg); }
-.knot-core { position: absolute; left: 50%; top: 50%; width: 17px; height: 17px; margin: -8.5px 0 0 -8.5px; border-radius: 50%; background: #f59e0b; box-shadow: 0 2px 6px rgba(180, 120, 0, .4); }
+.bow {
+  position: absolute; top: 14px; width: 44px; height: 32px; border: 8px solid #e0a83c; border-radius: 50%;
+  box-shadow: 0 4px 9px rgba(120, 70, 0, .32), inset 0 2px 5px rgba(255, 240, 190, .6);
+}
+.bow-l { left: 1px; transform-origin: 92% 50%; transform: rotate(calc(-20deg - var(--knot) * 68deg)) scaleX(calc(1 - var(--knot) * .94)); }
+.bow-r { right: 1px; transform-origin: 8% 50%; transform: rotate(calc(20deg + var(--knot) * 74deg)) scaleX(calc(1 + var(--knot) * .45 - var(--slip) * 1.4)); }
+.tail {
+  position: absolute; top: 40px; width: 13px; height: 46px; border-radius: 4px 4px 9px 9px;
+  background: repeating-linear-gradient(180deg, #f0c46b 0 7px, #cf9a3c 7px 14px);
+  box-shadow: 0 3px 7px rgba(120, 70, 0, .3), inset 0 2px 3px rgba(255, 240, 190, .6);
+  transform-origin: 50% 0;
+}
+.tail-l { left: 30px; transform: rotate(calc(16deg + var(--slip) * 62deg)) translateY(calc(var(--slip) * 22px)); }
+.tail-r { right: 30px; transform: rotate(calc(-16deg - var(--slip) * 62deg)) translateY(calc(var(--slip) * 22px)); }
+.knot-core {
+  position: absolute; left: 50%; top: 50%; width: 24px; height: 22px; margin: -11px 0 0 -12px; border-radius: 7px;
+  background: linear-gradient(145deg, #f6d78e, #c8912f); border: 1px solid rgba(140, 88, 15, .55);
+  box-shadow: inset 0 2px 3px rgba(255, 246, 214, .8), 0 3px 7px rgba(120, 70, 0, .4);
+  transform: rotate(calc(var(--knot) * 220deg)) scale(calc(1 - var(--slip) * .8));
+}
+/* haptic ripple + tactile tremble */
+.haptic-ring { position: absolute; left: 50%; top: 50%; width: 46px; height: 46px; margin: -23px 0 0 -23px; border: 2px solid var(--primary); border-radius: 50%; opacity: 0; transform: scale(.6); pointer-events: none; }
+.knot.tick .haptic-ring { animation: hapticPulse .42s ease-out; }
+@keyframes hapticPulse { 0% { opacity: .9; transform: scale(.6); } 100% { opacity: 0; transform: scale(2.7); } }
+.parcel.shaking { animation: ropeTremble .16s linear infinite; }
+@keyframes ropeTremble { 0%, 100% { transform: translateX(-1.2px) rotate(-.5deg); } 50% { transform: translateX(1.2px) rotate(.5deg); } }
 .parcel.shaking .parcel-lock { animation: shake .11s linear infinite; }
 .unlock-meter { width: min(300px, 80%); text-align: center; display: grid; gap: 8px; }
 .unlock-bar { height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
 .unlock-bar span { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width .1s linear; }
 .unlock-meter small { color: var(--muted); font-size: 12px; font-weight: 700; }
+.haptic-toggle {
+  justify-self: center; margin-top: 2px; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--primary);
+  font-size: 11px; font-weight: 700; cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.haptic-toggle:hover { border-color: var(--primary); transform: translateY(-1px); }
+.haptic-toggle.on { background: var(--primary-soft); border-color: var(--primary); }
+.haptic-toggle[hidden] { display: none; }
 .parcel-wrap.unlocked .parcel { opacity: 0; transform: scale(.82) rotate(-5deg); pointer-events: none; }
 .unlocked-actions { display: flex; flex-direction: column; align-items: center; gap: 14px; animation: chipIn .5s ease both; }
 .unlocked-actions[hidden] { display: none; }
