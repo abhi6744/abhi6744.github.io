@@ -40,5 +40,5 @@ To deploy your own copy:
 
 - Email: abhinavgireesh013@gmail.com
 - Phone: +91 8086201772
-- LinkedIn: [linkedin.com/in/abhinav-g](https://linkedin.com/in/abhinav-g)
+- LinkedIn: [linkedin.com/in/abhinav-g-334957321](https://linkedin.com/in/abhinav-g-334957321)
 - GitHub: [github.com/abhi6744](https://github.com/abhi6744)

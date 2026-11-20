@@ -84,6 +84,47 @@
     window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
   });
 
+  /* ---------- Scroll-driven story (CRED-style disclosure) ---------- */
+  const storyTrack = $("#storyTrack");
+  if (storyTrack) {
+    const steps = $$(".story-step", storyTrack);
+    const dots = $$(".story-dot", storyTrack);
+    const storyBar = $("#storyProgress");
+    let activeStep = -1;
+
+    function updateStory() {
+      const rect = storyTrack.getBoundingClientRect();
+      const total = Math.max(storyTrack.offsetHeight - window.innerHeight, 1);
+      const progress = Math.max(0, Math.min(1, -rect.top / total));
+      if (storyBar) storyBar.style.width = (progress * 100) + "%";
+
+      const index = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+      if (index !== activeStep) {
+        activeStep = index;
+        steps.forEach((step, i) => step.classList.toggle("active", i === index));
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+          dot.setAttribute("aria-current", String(i === index));
+        });
+      }
+    }
+
+    window.addEventListener("scroll", updateStory, { passive: true });
+    window.addEventListener("resize", updateStory);
+    updateStory();
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const i = Number(dot.dataset.goto);
+        const total = Math.max(storyTrack.offsetHeight - window.innerHeight, 1);
+        window.scrollTo({
+          top: storyTrack.offsetTop + (total * (i + 0.5)) / steps.length,
+          behavior: reducedMotion ? "auto" : "smooth"
+        });
+      });
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   const revealEls = $$(".reveal");
   if ("IntersectionObserver" in window && !reducedMotion) {
@@ -168,6 +209,46 @@
       }
       setTimeout(typeLoop, 500);
     }
+  }
+
+  /* ---------- Scroll-to-unlock résumé ---------- */
+  const unlockTrack = $("#unlockTrack");
+  if (unlockTrack) {
+    const vault = $("#vault");
+    const ring = $("#unlockRing");
+    const unlockBar = $("#unlockProgress");
+    const unlockPercent = $("#unlockPercent");
+    const vaultStatus = $("#vaultStatus");
+    const vaultContent = $(".vault-content", vault);
+    let unlocked = false;
+
+    function updateUnlock() {
+      if (unlocked) return;
+      const rect = unlockTrack.getBoundingClientRect();
+      const total = Math.max(unlockTrack.offsetHeight - window.innerHeight, 1);
+      const p = Math.max(0, Math.min(1, -rect.top / total));
+      const value = Math.round(p * 100);
+
+      ring.style.setProperty("--p", String(value));
+      unlockBar.style.width = value + "%";
+      unlockPercent.textContent = value + "% unlocked";
+      vault.classList.toggle("shaking", p > 0.15 && p < 0.95);
+      if (p > 0.55) vaultStatus.textContent = "Almost there...";
+
+      if (p >= 0.985) {
+        unlocked = true;
+        vault.classList.remove("shaking");
+        vault.classList.add("unlocked", "celebrate");
+        vaultContent.setAttribute("aria-hidden", "false");
+        vaultStatus.textContent = "Résumé unlocked";
+        showToast("Résumé unlocked 🔓");
+        setTimeout(() => vault.classList.remove("celebrate"), 800);
+      }
+    }
+
+    window.addEventListener("scroll", updateUnlock, { passive: true });
+    window.addEventListener("resize", updateUnlock);
+    updateUnlock();
   }
 
   /* ---------- Project filters ---------- */
