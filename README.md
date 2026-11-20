@@ -9,6 +9,8 @@ A clean, light-by-default, interactive single-page portfolio built with plain HT
 - **Light theme** by default, with an optional dark-mode toggle (saved in `localStorage`).
 - **Animated hero** with a rotating role line, floating tech chips and scrolling stat counters.
 - **Sticky navigation** with active-section highlighting, a "More" dropdown and a mobile menu.
+- **CRED-style scroll narrative**: four chapters pinned in place and disclosed one by one as you scroll.
+- **Scroll-to-unlock résumé**: a locked vault that only opens after continuous scrolling, with a progress ring and unlock animation (plus a direct link for the impatient).
 - **Filterable project grid** (RAG & LLM / Computer Vision / Security) with expandable details and direct links to the real GitHub repos.
 - **Experience timeline**, tabbed skill categories, project-based usage bars, certifications, achievements and education timeline.
 - **Contact section** with copy-to-clipboard email and a form that opens the visitor's email app with a prefilled message.
