@@ -35,8 +35,8 @@ To deploy your own copy:
 
 1. Create a repo named `<username>.github.io`.
 2. Push this folder to the `main` branch.
-3. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-4. The workflow runs automatically; your site appears at `https://<username>.github.io`.
+3. In **Settings → Pages**, set **Source** to **Deploy from a branch** and choose **main / root**. (The included `.github/workflows/deploy.yml` is an alternative if you prefer GitHub Actions.)
+4. Your site appears at `https://<username>.github.io`.
 
 ## Contact
 
