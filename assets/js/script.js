@@ -68,6 +68,9 @@
     sections.forEach((s) => navObserver.observe(s));
   }
 
+  /* ---------- Decorative tape duplicates stay out of tab order ---------- */
+  $$('.tape-set[aria-hidden="true"] a').forEach((link) => link.setAttribute("tabindex", "-1"));
+
   /* ---------- Scroll reveal ---------- */
   const reveals = $$(".reveal");
   if ("IntersectionObserver" in window && !reducedMotion) {

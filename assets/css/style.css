@@ -108,7 +108,7 @@ img, svg { max-width: 100%; }
 .menu-toggle { display: none; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; padding: 96px 0 70px; overflow: hidden; }
+.hero { position: relative; padding: 96px 0 110px; overflow: hidden; }
 .hero-grid-bg {
   position: absolute; inset: 0; pointer-events: none;
   background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
@@ -166,13 +166,45 @@ img, svg { max-width: 100%; }
 .scroll-cue { position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 46px; color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 .scroll-cue .icon { animation: float 2s ease-in-out infinite; }
 
-/* ---------- Marquee ---------- */
-.marquee { overflow: hidden; border-block: 1px solid var(--border); background: var(--bg-2); padding: 18px 0; }
-.marquee-track { display: flex; align-items: center; gap: 34px; width: max-content; animation: marquee 34s linear infinite; }
-.marquee-track span { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .16em; color: var(--muted); white-space: nowrap; }
-.marquee-track i { color: var(--accent); font-style: normal; font-size: 13px; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-.marquee:hover .marquee-track { animation-play-state: paused; }
+/* ---------- Interactive tape ---------- */
+.tape { position: relative; height: 190px; margin-top: -46px; overflow: hidden; z-index: 2; }
+.tape-band {
+  position: absolute; left: -4%; width: 108%; height: 54px; display: flex; align-items: center;
+  overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.tape-band--a {
+  top: 48px; transform: rotate(-2.6deg); background: var(--accent-solid); color: #fff;
+  box-shadow: 0 20px 50px -20px var(--accent-soft); z-index: 2;
+}
+.tape-band--b {
+  top: 96px; transform: rotate(2.4deg); color: var(--text);
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.tape-track { display: flex; width: max-content; animation: tape-marquee 42s linear infinite; will-change: transform; }
+.tape-band--b .tape-track { animation-direction: reverse; animation-duration: 52s; }
+.tape-band:hover .tape-track, .tape-band:focus-within .tape-track { animation-play-state: paused; }
+.tape-set { display: flex; align-items: center; }
+.tape-lead, .tape-item {
+  display: inline-flex; align-items: center; gap: 12px; padding: 0 16px 0 24px;
+  font-family: "Outfit", sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase; white-space: nowrap;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.tape-item::after {
+  content: ""; width: 6px; height: 6px; margin-left: 18px;
+  transform: rotate(45deg); background: currentColor; opacity: .55;
+}
+.tape-lead {
+  padding: 7px 14px; margin-right: 12px; border-radius: 9px;
+  background: #fff; color: var(--accent-solid); font-weight: 800; letter-spacing: .14em;
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, .5);
+}
+.tape-band--b .tape-lead { background: var(--accent-solid); color: #fff; }
+.tape-band--b .tape-item::after { color: var(--accent); }
+.tape-lead:hover, .tape-item:hover { opacity: .72; transform: translateY(-1px); }
+.tape-lead:focus-visible, .tape-item:focus-visible { outline: 2px solid #fff; outline-offset: -5px; }
+@keyframes tape-marquee { to { transform: translateX(-50%); } }
 
 /* ---------- Sections ---------- */
 .section { padding: 110px 0; }
@@ -369,7 +401,12 @@ body.modal-open { overflow: hidden; }
   .container { width: min(var(--max), calc(100% - 32px)); }
   .section { padding: 78px 0; }
   .header-resume { display: none; }
-  .hero { padding-top: 60px; }
+  .hero { padding-top: 60px; padding-bottom: 90px; }
+  .tape { height: 160px; margin-top: -28px; }
+  .tape-band { height: 46px; }
+  .tape-band--a { top: 38px; transform: rotate(-4deg); }
+  .tape-band--b { top: 82px; transform: rotate(4deg); }
+  .tape-lead, .tape-item { font-size: 10px; padding-left: 18px; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .hero-visual { min-height: 340px; }
   .orbit-one { width: 300px; height: 300px; }
@@ -400,4 +437,5 @@ body.modal-open { overflow: hidden; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+  .tape-track { animation: none; }
 }
