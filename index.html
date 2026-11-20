@@ -1,588 +1,355 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!doctype html>
+<html lang="en" data-theme="dark" data-accent="crimson">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Abhinav G — AI / ML engineer specializing in RAG systems, computer vision and cybersecurity. Explore projects, experience and certifications.">
-  <meta name="theme-color" content="#f7f9fc">
-  <meta property="og:title" content="Abhinav G — AI / ML Engineer">
-  <meta property="og:description" content="Interactive portfolio: RAG systems, computer vision, explainable AI and cybersecurity projects.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Abhinav G — AI / ML Student, Builder &amp; Researcher</title>
+  <meta name="description" content="Abhinav G is an MCA student at CHRIST University building drift-aware RAG systems, explainable computer vision and practical AI. Explore projects, research and résumé.">
+  <meta name="theme-color" content="#0d090b">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://abhi6744.github.io/">
   <meta property="og:type" content="website">
-  <title>Abhinav G — AI / ML Engineer | Portfolio</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta property="og:title" content="Abhinav G — AI / ML Student, Builder &amp; Researcher">
+  <meta property="og:description" content="MCA student. AI/ML builder. Researcher. Turning research into systems that actually work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('ag-theme') || 'dark';
+        var a = localStorage.getItem('ag-accent') || 'crimson';
+        if (['dark', 'light'].indexOf(t) === -1) t = 'dark';
+        if (['crimson', 'violet', 'emerald'].indexOf(a) === -1) a = 'crimson';
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.setAttribute('data-accent', a);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ===== SVG icon sprite ===== -->
   <svg class="svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2 8 6 8-6"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></symbol>
-    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6ZM6 9v12H2V9h4Zm0-6a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/></symbol>
-    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-2c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .8.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 0 1 5 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7 1 .7 2v3c0 .3.2.6.8.5A10 10 0 0 0 12 2Z"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
-    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M1 12h2m18 0h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
-    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
-    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></symbol>
-    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16M2 12h20"/></symbol>
-    <symbol id="i-graduation" viewBox="0 0 24 24"><path d="m2 10 10-5 10 5-10 5L2 10Zm4 2v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5M22 10v6"/></symbol>
-    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m8.2 13.2-2 8 5.8-3 5.8 3-2-8"/></symbol>
-    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0V4ZM6 6H4v2a4 4 0 0 0 4 4M18 6h2v2a4 4 0 0 1-4 4"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2ZM19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7L19 17Z"/></symbol>
-    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Zm0 0L11 13"/></symbol>
-    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
-    <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 7.5-2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 17v3h16v-3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4.5 1.4-4.5-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.2a12 12 0 0 0-6.3 0C6.9 2.6 5.8 2.9 5.8 2.9a4.2 4.2 0 0 0-.1 3.2 4.6 4.6 0 0 0-1.3 3.2c0 4.6 2.7 5.7 5.5 6-.5.6-.5 1.1-.5 2V21"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7h.01M12 17v-4a2 2 0 0 1 4 0v4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 1.4-3.4 2 2 0 0 1 1.4-3.4H18a3 3 0 0 0 3-3A9 9 0 0 0 12 3Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="11" cy="7.5" r="1"/><circle cx="16" cy="8" r="1"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="m8.5 12-1.5 9 5-3 5 3-1.5-9"/></symbol>
   </svg>
 
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" title="Abhinav G — back to top"><span class="brand-mark">AG</span><span class="brand-name">abhinav<span>.</span>g</span></a>
 
-  <!-- ===== Header ===== -->
-  <header class="site-header" id="header">
-    <div class="container nav-wrap">
-      <a href="#home" class="brand" aria-label="AG — Abhinav G, back to top">AG<span class="brand-dot">.</span></a>
-
-      <nav class="nav" id="nav" aria-label="Main navigation">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <div class="nav-dropdown">
-          <button class="nav-link dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-            More <svg class="icon icon-sm"><use href="#i-chevron"></use></svg>
-          </button>
-          <div class="dropdown-menu" role="menu">
-            <a href="#approach" role="menuitem">How I work</a>
-            <a href="#unlock" role="menuitem">Unlock résumé</a>
-            <a href="#certifications" role="menuitem">Certifications</a>
-            <a href="#education" role="menuitem">Education</a>
-          </div>
-        </div>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="assets/Abhinav_G_Resume.pdf" target="_blank" class="btn btn-sm btn-primary nav-resume">Résumé <svg class="icon icon-sm"><use href="#i-download"></use></svg></a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <div class="nav-actions">
-        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
           <svg class="icon sun-icon"><use href="#i-sun"></use></svg>
           <svg class="icon moon-icon"><use href="#i-moon"></use></svg>
         </button>
-        <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-          <svg class="icon menu-icon"><use href="#i-menu"></use></svg>
-          <svg class="icon close-icon"><use href="#i-close"></use></svg>
+        <button class="icon-btn" id="accentToggle" type="button" aria-label="Change accent colour" title="Change accent colour">
+          <svg class="icon"><use href="#i-palette"></use></svg>
+        </button>
+        <a class="btn btn-sm btn-outline header-resume" href="assets/Abhinav_G_Resume.pdf" target="_blank" rel="noopener">Résumé <svg class="icon icon-sm"><use href="#i-up-right"></use></svg></a>
+        <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <svg class="icon"><use href="#i-menu"></use></svg>
         </button>
       </div>
     </div>
+    <div class="header-line" aria-hidden="true"></div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ===== Hero ===== -->
-    <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true">
-        <span class="blob blob-1"></span><span class="blob blob-2"></span><span class="blob blob-3"></span>
-        <span class="grid-overlay"></span>
-      </div>
-
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="availability"><span class="pulse-dot"></span> Open to AI / ML opportunities</div>
-          <h1>Hi, I'm <span class="gradient-text">Abhinav G</span><span class="wave">.</span></h1>
-          <p class="hero-role">I build <span class="typed" id="typed">intelligent AI systems.</span><span class="typed-cursor" aria-hidden="true"></span></p>
-          <p class="hero-lead">
-            MCA student specializing in Artificial Intelligence &amp; Machine Learning. I turn research into
-            working prototypes — from semantic-drift monitoring in vector stores to 3D MRI classifiers and
-            live intrusion detection.
-          </p>
-
+    <section class="hero" id="top">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow hero-eyebrow"><span class="pulse-dot"></span> MCA student · AI/ML builder · Researcher</p>
+          <h1>I build AI that <span class="gradient-text">thinks before it answers.</span></h1>
+          <p class="hero-lede">I'm <strong>Abhinav G</strong> — a CHRIST University MCA student turning research into working systems: drift-aware RAG, explainable MRI classifiers, and intrusion detection that actually ships.</p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">Explore my work <svg class="icon icon-sm"><use href="#i-arrow-right"></use></svg></a>
-            <a href="assets/Abhinav_G_Resume.pdf" target="_blank" class="btn btn-outline">Download résumé <svg class="icon icon-sm"><use href="#i-download"></use></svg></a>
-            <a href="#contact" class="btn btn-ghost">Let's talk</a>
+            <a href="#work" class="btn btn-primary">Explore the work <svg class="icon icon-sm"><use href="#i-arrow"></use></svg></a>
+            <a href="#research" class="btn btn-outline">Read my research <svg class="icon icon-sm"><use href="#i-file"></use></svg></a>
+            <a href="assets/Abhinav_G_Resume.pdf" target="_blank" rel="noopener" class="btn btn-outline">Résumé <svg class="icon icon-sm"><use href="#i-download"></use></svg></a>
           </div>
-
-          <div class="hero-meta">
-            <a href="mailto:abhinavgireesh013@gmail.com"><svg class="icon icon-sm"><use href="#i-mail"></use></svg> abhinavgireesh013@gmail.com</a>
-            <a href="tel:+918086201772"><svg class="icon icon-sm"><use href="#i-phone"></use></svg> +91 8086201772</a>
-            <span><svg class="icon icon-sm"><use href="#i-pin"></use></svg> Ghaziabad, Delhi NCR</span>
-          </div>
+          <ul class="hero-stats" aria-label="At a glance">
+            <li><strong data-count="3.68" data-decimals="2">0</strong><span>CGPA / 4.0</span></li>
+            <li><strong data-count="5" data-suffix="+">0</strong><span>Projects shipped</span></li>
+            <li><strong data-count="0.92" data-decimals="2">0</strong><span>Best F1 score</span></li>
+            <li><strong data-count="1" data-suffix="">0</strong><span>Paper under review</span></li>
+          </ul>
         </div>
 
-        <div class="hero-visual reveal" aria-hidden="true">
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-aura"></div>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
           <div class="monogram-card">
-            <div class="monogram">AG</div>
-            <div class="monogram-caption">
-              <strong>Abhinav G</strong>
-              <span>AI / ML Engineer</span>
-            </div>
+            <span class="monogram">AG</span>
+            <span class="monogram-sub">BUILD · MEASURE · EXPLAIN</span>
           </div>
-          <div class="float-chip chip-1"><svg class="icon icon-sm"><use href="#i-spark"></use></svg> RAG Systems</div>
-          <div class="float-chip chip-2"><svg class="icon icon-sm"><use href="#i-spark"></use></svg> Computer Vision</div>
-          <div class="float-chip chip-3"><svg class="icon icon-sm"><use href="#i-spark"></use></svg> Explainable AI</div>
-          <div class="float-chip chip-4"><svg class="icon icon-sm"><use href="#i-spark"></use></svg> Cyber Security</div>
+          <div class="float-chip float-top"><span class="chip-dot"></span> Qdrant · FAISS · RAG</div>
+          <div class="float-chip float-right">84% MRI accuracy</div>
+          <div class="float-chip float-bottom">0.31 → 0.73 relevance</div>
+          <div class="status-chip"><span class="pulse-dot"></span> Open to AI/ML roles</div>
         </div>
       </div>
-
-      <div class="container">
-        <div class="stats-row reveal" id="statsRow">
-          <div class="stat"><strong data-count="5" data-suffix="+">0</strong><span>Projects built</span></div>
-          <div class="stat"><strong data-count="0.92" data-decimals="2">0</strong><span>F1 score</span></div>
-          <div class="stat"><strong data-count="84" data-suffix="%">0</strong><span>MRI accuracy</span></div>
-          <div class="stat"><strong data-count="3.68" data-decimals="2">0</strong><span>CGPA / 4.0</span></div>
-        </div>
-      </div>
-
-      <a href="#about" class="scroll-hint" aria-label="Scroll to about section"><span></span></a>
+      <a class="scroll-cue" href="#work"><span>Scroll to explore</span><svg class="icon icon-sm"><use href="#i-chevron"></use></svg></a>
     </section>
 
-    <!-- ===== About ===== -->
-    <section class="section" id="about">
+    <!-- ===== Credibility strip ===== -->
+    <div class="marquee" aria-label="Background and recognitions">
+      <div class="marquee-track">
+        <span>CHRIST UNIVERSITY</span><i>✳</i><span>IEEE-FORMAT RESEARCH</span><i>✳</i><span>INTEL UNNATI AI</span><i>✳</i><span>IBM CYBER SECURITY</span><i>✳</i><span>TCS</span><i>✳</i><span>YENEPOYA</span><i>✳</i>
+        <span>CHRIST UNIVERSITY</span><i>✳</i><span>IEEE-FORMAT RESEARCH</span><i>✳</i><span>INTEL UNNATI AI</span><i>✳</i><span>IBM CYBER SECURITY</span><i>✳</i><span>TCS</span><i>✳</i><span>YENEPOYA</span><i>✳</i>
+      </div>
+    </div>
+
+    <!-- ===== Selected work ===== -->
+    <section class="section" id="work">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">01 / About me</span>
-          <h2>Building AI that <span class="gradient-text">actually works</span></h2>
-          <p class="section-sub">A quick look at who I am and what I care about.</p>
+          <span class="section-index">01 / Selected work</span>
+          <h2>Five builds. <span class="muted">Each solving a real problem.</span></h2>
+          <p>Academic projects turned into end-to-end systems — data, model, API and interface.</p>
         </div>
 
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p>
-              I'm an MCA student at CHRIST (Deemed to be University), Delhi NCR, specializing in Artificial
-              Intelligence and Machine Learning. My work spans data preprocessing, model training and deployment —
-              with a focus on practical, end-to-end prototypes rather than notebook-only experiments.
-            </p>
-            <p>
-              I've built deep learning and computer vision systems, retrieval-augmented generation pipelines, and
-              security tooling. I care about <strong>grounded outputs</strong>, <strong>measurable impact</strong> and
-              <strong>responsible data handling</strong> — including zero permanent storage of user documents in my
-              citizen-services chatbot.
-            </p>
-            <p>
-              I'm looking forward to contributing to an organization in the AI/ML domain while continuously learning
-              and working with emerging technologies.
-            </p>
-            <div class="about-values">
-              <div class="value-card"><span class="value-icon"><svg class="icon"><use href="#i-spark"></use></svg></span><div><strong>Practical by default</strong><span>I ship working prototypes, not just experiments.</span></div></div>
-              <div class="value-card"><span class="value-icon"><svg class="icon"><use href="#i-check"></use></svg></span><div><strong>Grounded &amp; measurable</strong><span>Source-grounded answers and numbers I can defend.</span></div></div>
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="work-top"><span class="work-no">01</span><span class="work-year">2026</span></div>
+            <h3>Akshaya Advisory <span>· Citizen Service AI</span></h3>
+            <p>Agentic RAG chatbot for Aadhaar, ration card and scholarship guidance with strict source grounding, multimodal document checks and zero permanent document storage.</p>
+            <div class="work-metric"><strong>0 hallucinations</strong><span>grounded answers</span></div>
+            <div class="tags"><span>Python</span><span>FastAPI</span><span>React Native</span><span>FAISS</span><span>Grok</span></div>
+            <a class="work-link" href="https://github.com/abhi6744/Agentic-RAG-Based-Citizen-Service-Advisory-Chatbot" target="_blank" rel="noopener">View code <svg class="icon icon-sm"><use href="#i-up-right"></use></svg></a>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-top"><span class="work-no">02</span><span class="work-year">2025</span></div>
+            <h3>SemanticGuard <span>· Drift-Aware Retrieval</span></h3>
+            <p>Middleware that monitors embedding health, detects semantic drift with cosine checks and re-embeds only the vectors that need repair. The basis of my research paper.</p>
+            <div class="work-metric"><strong>0.31 → 0.73</strong><span>retrieval relevance</span></div>
+            <div class="tags"><span>Python</span><span>Qdrant</span><span>Flask</span><span>RAG</span></div>
+            <a class="work-link" href="#research">Read the paper <svg class="icon icon-sm"><use href="#i-arrow"></use></svg></a>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-top"><span class="work-no">03</span><span class="work-year">2026</span></div>
+            <h3>NeuroXplain <span>· Explainable MRI</span></h3>
+            <p>Full-stack 3D NIfTI classifier for Alzheimer's with skull-stripping, registration and a four-backbone ensemble. Grad-CAM, SHAP and LIME make decisions visible to clinicians.</p>
+            <div class="work-metric"><strong>84% acc · 0.93 AUC</strong><span>ADNI-style scans</span></div>
+            <div class="tags"><span>TensorFlow</span><span>FastAPI</span><span>React</span><span>ANTsPy</span></div>
+            <a class="work-link" href="https://github.com/abhi6744/Alzheimer-s-prediction-using-MRI" target="_blank" rel="noopener">View code <svg class="icon icon-sm"><use href="#i-up-right"></use></svg></a>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-top"><span class="work-no">04</span><span class="work-year">2024</span></div>
+            <h3>Real-Time IDS <span>· Threat Detection</span></h3>
+            <p>Live network intrusion detection classifying traffic with a Random Forest model, then generating alerts and blocking IPs through a Flask monitoring dashboard.</p>
+            <div class="work-metric"><strong>0.92 F1</strong><span>anomaly detection</span></div>
+            <div class="tags"><span>Python</span><span>Flask</span><span>Random Forest</span></div>
+            <a class="work-link" href="https://github.com/abhi6744/AI-powered-threat-detection" target="_blank" rel="noopener">View code <svg class="icon icon-sm"><use href="#i-up-right"></use></svg></a>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-top"><span class="work-no">05</span><span class="work-year">2026</span></div>
+            <h3>GreenLens <span>· Satellite Insights</span></h3>
+            <p>Multi-temporal GeoTIFF analysis with a trained ResNet50 for 10-class EuroSAT land cover, CLAHE enhancement and rule-based deforestation transition mapping.</p>
+            <div class="work-metric"><strong>10 classes</strong><span>land cover mapping</span></div>
+            <div class="tags"><span>PyTorch</span><span>FastAPI</span><span>React</span><span>TypeScript</span></div>
+            <a class="work-link" href="https://github.com/abhi6744/Green-Lens" target="_blank" rel="noopener">View code <svg class="icon icon-sm"><use href="#i-up-right"></use></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Research ===== -->
+    <section class="section research" id="research">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">02 / Research</span>
+          <h2>A question worth <span class="gradient-text">asking.</span></h2>
+          <p>SemanticGuard — my first full research paper. Presented and currently awaiting the publication decision.</p>
+        </div>
+
+        <div class="paper-feature reveal">
+          <div class="paper-main">
+            <div class="paper-badges">
+              <span class="badge badge-status"><span class="pulse-dot"></span> Presented · Publication pending</span>
+              <span class="badge">IEEE-format manuscript</span>
+            </div>
+            <h3>SemanticGuard: A Drift-Aware Selective Re-Embedding and Hybrid Coverage-Gap Ingestion Framework for Efficient RAG Systems</h3>
+            <div class="paper-authors">
+              <span class="mono-label">AUTHORS / IN ORDER</span>
+              <ol class="author-list" aria-label="Author order">
+                <li><strong>Abhinav G</strong><span>Lead author</span></li>
+                <li><strong>Dr. Vandana Mehndiratta</strong></li>
+                <li><strong>Dr. Ramesh Chandra Poonia</strong></li>
+                <li><strong>Dr. Varuna Gupta</strong></li>
+              </ol>
+              <p class="paper-affiliation">Christ University, Bengaluru, India</p>
+            </div>
+            <p class="paper-abstract">RAG embeddings quietly decay when the encoder or preprocessing pipeline changes, even when the source text never moves. SemanticGuard ranks documents by semantic drift, re-embeds only the highest-drift items within a fixed budget, and ingests new documents by balancing topic representativeness with coverage-gap novelty. At just 20% repair and 20% ingestion budgets, it preserves most of the retrieval quality of a full rebuild at a fraction of the computation.</p>
+            <div class="tags paper-tags"><span>Retrieval-Augmented Generation</span><span>Vector databases</span><span>Semantic drift</span><span>Selective re-embedding</span><span>Cost-aware maintenance</span></div>
+            <div class="paper-actions">
+              <button class="btn btn-primary" id="openPaper" type="button">Read the paper <svg class="icon icon-sm"><use href="#i-file"></use></svg></button>
+              <a class="btn btn-outline" href="assets/SemanticGuard-Research-IEEE.pdf" download>Download PDF <svg class="icon icon-sm"><use href="#i-download"></use></svg></a>
             </div>
           </div>
 
-          <aside class="glance-card reveal">
-            <h3>At a glance</h3>
-            <ul class="glance-list">
-              <li><span>Focus</span><strong>AI / ML, RAG, Computer Vision</strong></li>
-              <li><span>Currently</span><strong>MCA @ CHRIST University</strong></li>
-              <li><span>Experience</span><strong>ML &amp; Cybersecurity Intern</strong></li>
-              <li><span>Location</span><strong>Ghaziabad, Delhi NCR</strong></li>
-              <li><span>Open to</span><strong>Internships &amp; full-time roles</strong></li>
-            </ul>
-            <a href="#contact" class="text-link">Let's connect <svg class="icon icon-sm"><use href="#i-arrow-right"></use></svg></a>
-          </aside>
+          <div class="paper-results">
+            <div class="results-head"><span class="mono-label">RESULTS / nDCG@10 RETENTION</span><span class="results-badge">20% repair · 20% ingest</span></div>
+            <div class="bars" id="resultBars">
+              <div class="bar-row"><span class="bar-label">arXiv</span><div class="bar-track"><span class="bar-fill" data-width="94.9"></span></div><strong>94.9%</strong></div>
+              <div class="bar-row"><span class="bar-label">Indian News</span><div class="bar-track"><span class="bar-fill" data-width="85.7"></span></div><strong>85.7%</strong></div>
+              <div class="bar-row"><span class="bar-label">Financial</span><div class="bar-track"><span class="bar-fill" data-width="86.1"></span></div><strong>86.1%</strong></div>
+            </div>
+            <p class="results-sub">of Full-Rebuild quality under synthetic drift. Cross-model real-drift validation: <strong>95.4% / 85.6% / 89.6%</strong>.</p>
+            <div class="results-cols">
+              <div><span class="mono-label">INDEX UPDATES</span><strong>4,170 <small>vs 14,850 full rebuild</small></strong></div>
+              <div><span class="mono-label">ARXIV TIME</span><strong>1.9s <small>vs 31.7s full rebuild</small></strong></div>
+            </div>
+          </div>
         </div>
+
+        <div class="contrib-grid">
+          <article class="contrib-card reveal"><span class="contrib-icon">01</span><h4>Drift that can be seen</h4><p>An embedding-space score that detects stale vectors using cosine disagreement — even when the document text has not changed.</p></article>
+          <article class="contrib-card reveal"><span class="contrib-icon">02</span><h4>Repair within budget</h4><p>Rank by drift, then re-embed only the highest-drift documents that fit the repair budget. No expensive full-corpus rebuild.</p></article>
+          <article class="contrib-card reveal"><span class="contrib-icon">03</span><h4>Smarter ingestion</h4><p>New documents are scored by topic representativeness and coverage-gap novelty, with the balance tuned per dataset.</p></article>
+        </div>
+
+        <div class="method reveal">
+          <span class="mono-label">METHOD / THE PIPELINE</span>
+          <ol class="method-steps">
+            <li><span>01</span><strong>Encode</strong><p>15,000 docs per corpus → 384-d vectors with all-MiniLM-L6-v2.</p></li>
+            <li><span>02</span><strong>Detect</strong><p>Drift = 1 − cosine(stored, fresh). Perturbed vectors ~0.72 vs clean ~0.97 similarity.</p></li>
+            <li><span>03</span><strong>Repair &amp; ingest</strong><p>Re-embed top drift; blend coverage gap + representativeness for arrivals.</p></li>
+            <li><span>04</span><strong>Evaluate</strong><p>P@10, R@10, MRR, nDCG across 5 seeds against Full Rebuild and 7 baselines.</p></li>
+          </ol>
+        </div>
+
+        <details class="paper-more reveal">
+          <summary>Show full abstract, contributions and keywords <svg class="icon icon-sm"><use href="#i-chevron"></use></svg></summary>
+          <div class="paper-more-body">
+            <p><strong>Abstract.</strong> Retrieval Augmented Generation systems use vector databases to ground generated answers in retrieved documents. While source text may remain unchanged, changing the embedding model or processing pipeline makes stored embeddings decay. Full corpus re-embedding is resource-heavy. SemanticGuard presents budget-aware document ingestion and selective embedding correction: documents are ranked by semantic drift and the highest-drift items within a budget are re-embedded, while incoming documents are ranked by both topical representativeness and coverage-gap uniqueness. Against Full-Rebuild nDCG@10, SemanticGuard retains 94.9%, 85.7% and 86.1% on arXiv abstracts, Indian news and financial analyst-rated headlines at 20% repair and 20% ingestion budgets, and 95.4%, 85.6% and 89.6% under cross-model drift validation.</p>
+            <p><strong>Contributions.</strong> (1) an embedding-space drift score that detects stale vectors with unchanged text; (2) cost-conscious selective re-embedding with a budget-derived threshold; (3) hybrid document intake blending representativeness and coverage gaps; (4) evaluation on three datasets with real and synthetic drift; (5) computational-cost comparison against partial updates and full rebuilds.</p>
+            <p><strong>Keywords.</strong> Retrieval-Augmented Generation · vector database · semantic drift · selective re-embedding · cost-aware maintenance · coverage-gap ingestion.</p>
+            <a href="assets/SemanticGuard-Research-IEEE.pdf" target="_blank" rel="noopener" class="inline-link">Open the 6-page manuscript <svg class="icon icon-sm"><use href="#i-up-right"></use></svg></a>
+          </div>
+        </details>
       </div>
     </section>
 
     <!-- ===== Experience ===== -->
-    <section class="section section-alt" id="experience">
-      <div class="container">
+    <section class="section" id="experience">
+      <div class="container experience-layout">
         <div class="section-head reveal">
-          <span class="eyebrow">02 / Experience</span>
-          <h2>Where I've <span class="gradient-text">made an impact</span></h2>
-          <p class="section-sub">Real-world work, real numbers.</p>
+          <span class="section-index">03 / Experience</span>
+          <h2>Where I've <span class="muted">been.</span></h2>
         </div>
-
         <div class="timeline reveal">
-          <div class="timeline-item">
-            <div class="timeline-marker"><svg class="icon icon-sm"><use href="#i-briefcase"></use></svg></div>
-            <div class="timeline-card">
-              <div class="timeline-top">
-                <div class="company-logo">PS</div>
-                <div>
-                  <h3>Machine Learning &amp; Cybersecurity Intern</h3>
-                  <p class="company">Phemesoftware Pvt. Ltd. · Remote, India</p>
-                </div>
-                <span class="date-badge"><svg class="icon icon-sm"><use href="#i-calendar"></use></svg> Sep 2024 — Nov 2024</span>
-              </div>
-              <ul class="bullet-list">
-                <li>Developed a machine-learning-based threat detection system analyzing network traffic and user behaviour.</li>
-                <li>Applied Random Forest and ensemble methods to classify anomalies, achieving an <strong>F1-score of 0.92</strong>.</li>
-                <li>Implemented automated anomaly alerts, improving response time and cutting manual monitoring effort by <strong>40%</strong>.</li>
-              </ul>
-              <div class="tag-row"><span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">Anomaly Detection</span><span class="tag">Cybersecurity</span></div>
-            </div>
-          </div>
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">Sep 2024 — Nov 2024</div>
+            <h3>Machine Learning &amp; Cybersecurity Intern</h3>
+            <p class="timeline-place">Phemesoftware Pvt. Ltd. · Remote, India</p>
+            <ul>
+              <li>Built an ML threat-detection system analysing network traffic and user behaviour.</li>
+              <li>Applied Random Forest and ensemble methods to classify anomalies — F1 score <strong>0.92</strong>.</li>
+              <li>Automated anomaly alerts, cutting manual monitoring effort by <strong>40%</strong>.</li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-meta">2025 — Present</div>
+            <h3>Independent AI/ML Projects &amp; Research</h3>
+            <p class="timeline-place">CHRIST University · Delhi NCR</p>
+            <ul>
+              <li>Developed five end-to-end projects across RAG, computer vision and security.</li>
+              <li>Authored a paper on drift-aware RAG maintenance, presented and under publication review.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== Projects ===== -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">03 / Projects</span>
-          <h2>Selected <span class="gradient-text">work</span></h2>
-          <p class="section-sub">Five projects spanning RAG, computer vision and security. Filter to explore.</p>
+    <!-- ===== About / education ===== -->
+    <section class="section about" id="about">
+      <div class="container about-layout">
+        <div class="about-copy reveal">
+          <span class="section-index">04 / About</span>
+          <h2>Still a student. <span class="gradient-text">Already building.</span></h2>
+          <p>I'm an MCA student specialising in AI and machine learning. I care about the unglamorous parts — preprocessing, evaluation, deployment — as much as the model itself. My favourite work sits where research meets something a person can actually use.</p>
+          <p>Right now I'm exploring cost-aware RAG maintenance, explainable computer vision and systems that tell you when they're wrong.</p>
+          <a href="#contact" class="inline-link">Let's talk about an opportunity <svg class="icon icon-sm"><use href="#i-arrow"></use></svg></a>
         </div>
-
-        <div class="filter-bar reveal" role="group" aria-label="Filter projects">
-          <button class="filter-btn active" data-filter="all">All <span>5</span></button>
-          <button class="filter-btn" data-filter="rag">RAG &amp; LLM <span>2</span></button>
-          <button class="filter-btn" data-filter="vision">Computer Vision <span>2</span></button>
-          <button class="filter-btn" data-filter="security">Security <span>1</span></button>
-        </div>
-
-        <div class="projects-grid" id="projectsGrid">
-
-          <article class="project-card reveal" data-category="rag">
-            <div class="project-top">
-              <span class="project-icon icon-rag"><svg class="icon"><use href="#i-spark"></use></svg></span>
-              <span class="project-meta">RAG &amp; LLM · 2026</span>
-            </div>
-            <h3>Akshaya Advisory MVP</h3>
-            <p class="project-sub">Citizen Service AI Chatbot</p>
-            <p class="project-desc">An agentic RAG chatbot delivering context-aware guidance for Aadhaar, Ration Card and Scholarship services — with strict source grounding to eliminate hallucinations.</p>
-            <div class="project-details" hidden>
-              <ul>
-                <li>Multimodal document processing for instant verification.</li>
-                <li>Dynamic FAISS vector search with multi-turn context state.</li>
-                <li>Zero permanent storage of user documents.</li>
-              </ul>
-            </div>
-            <div class="tag-row"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React Native</span><span class="tag">FAISS</span><span class="tag">Grok API</span></div>
-            <div class="project-footer">
-              <a href="https://github.com/abhi6744/Agentic-RAG-Based-Citizen-Service-Advisory-Chatbot" target="_blank" rel="noopener" class="project-link">View code <svg class="icon icon-sm"><use href="#i-external"></use></svg></a>
-              <button class="details-btn" aria-expanded="false">Details <svg class="icon icon-sm"><use href="#i-chevron"></use></svg></button>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="rag">
-            <div class="project-top">
-              <span class="project-icon icon-rag"><svg class="icon"><use href="#i-spark"></use></svg></span>
-              <span class="project-meta">RAG &amp; LLM · 2025</span>
-            </div>
-            <h3>SemanticGuard</h3>
-            <p class="project-sub">Drift-Aware Retrieval &amp; Repair</p>
-            <p class="project-desc">Middleware for RAG pipelines that monitors embedding health and detects semantic drift using cosine-similarity threshold checks.</p>
-            <div class="project-impact"><svg class="icon icon-sm"><use href="#i-arrow-right"></use></svg> Retrieval relevance <strong>0.31 → 0.73</strong></div>
-            <div class="project-details" hidden>
-              <ul>
-                <li>Selective repair workflow re-embeds only drifted vectors.</li>
-                <li>Flask dashboard tracks drift, repair progress and retrieval quality.</li>
-              </ul>
-            </div>
-            <div class="tag-row"><span class="tag">Python</span><span class="tag">Qdrant</span><span class="tag">Flask</span></div>
-            <div class="project-footer">
-              <a href="https://github.com/abhi6744/semantic-Guard" target="_blank" rel="noopener" class="project-link">View code <svg class="icon icon-sm"><use href="#i-external"></use></svg></a>
-              <button class="details-btn" aria-expanded="false">Details <svg class="icon icon-sm"><use href="#i-chevron"></use></svg></button>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="vision">
-            <div class="project-top">
-              <span class="project-icon icon-vision"><svg class="icon"><use href="#i-spark"></use></svg></span>
-              <span class="project-meta">Computer Vision · 2026</span>
-            </div>
-            <h3>NeuroXplain</h3>
-            <p class="project-sub">Explainable Alzheimer's MRI Classifier</p>
-            <p class="project-desc">Full-stack web app for raw 3D NIfTI MRI analysis with an automated preprocessing pipeline: skull-stripping, template registration and intensity normalization.</p>
-            <div class="project-impact"><svg class="icon icon-sm"><use href="#i-arrow-right"></use></svg> <strong>84%</strong> accuracy · <strong>0.93</strong> AUC</div>
-            <div class="project-details" hidden>
-              <ul>
-                <li>Four-backbone ensemble: ResNet50, EfficientNetB0, DenseNet121, VGG16.</li>
-                <li>Grad-CAM, SHAP and LIME for clinical interpretability.</li>
-              </ul>
-            </div>
-            <div class="tag-row"><span class="tag">Python</span><span class="tag">TensorFlow / Keras</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">ANTsPy</span></div>
-            <div class="project-footer">
-              <a href="https://github.com/abhi6744/Alzheimer-s-prediction-using-MRI" target="_blank" rel="noopener" class="project-link">View code <svg class="icon icon-sm"><use href="#i-external"></use></svg></a>
-              <button class="details-btn" aria-expanded="false">Details <svg class="icon icon-sm"><use href="#i-chevron"></use></svg></button>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="security">
-            <div class="project-top">
-              <span class="project-icon icon-security"><svg class="icon"><use href="#i-spark"></use></svg></span>
-              <span class="project-meta">Cyber Security · 2024</span>
-            </div>
-            <h3>Real-Time Intrusion Detection</h3>
-            <p class="project-sub">Network IDS with live monitoring</p>
-            <p class="project-desc">A real-time IDS classifying live network traffic with high accuracy and low false positives, with automated alerting and IP blocking.</p>
-            <div class="project-details" hidden>
-              <ul>
-                <li>Random Forest model trained on network traffic patterns.</li>
-                <li>Flask dashboard for live monitoring and threat response.</li>
-              </ul>
-            </div>
-            <div class="tag-row"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Random Forest</span></div>
-            <div class="project-footer">
-              <a href="https://github.com/abhi6744/AI-powered-threat-detection" target="_blank" rel="noopener" class="project-link">View code <svg class="icon icon-sm"><use href="#i-external"></use></svg></a>
-              <button class="details-btn" aria-expanded="false">Details <svg class="icon icon-sm"><use href="#i-chevron"></use></svg></button>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="vision">
-            <div class="project-top">
-              <span class="project-icon icon-vision"><svg class="icon"><use href="#i-spark"></use></svg></span>
-              <span class="project-meta">Computer Vision · 2026</span>
-            </div>
-            <h3>GreenLens</h3>
-            <p class="project-sub">Satellite Insights for a Greener Planet</p>
-            <p class="project-desc">Full-stack computer vision app for multi-temporal GeoTIFF satellite analysis — dual-image inputs through a trained ResNet50 model for 10-class EuroSAT land-cover classification.</p>
-            <div class="project-details" hidden>
-              <ul>
-                <li>Preprocessing with percentile stretching and CLAHE contrast enhancement.</li>
-                <li>Rule-based forest transition mapping with JSON/ZIP report exports.</li>
-              </ul>
-            </div>
-            <div class="tag-row"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PyTorch</span></div>
-            <div class="project-footer">
-              <a href="https://github.com/abhi6744/Green-Lens" target="_blank" rel="noopener" class="project-link">View code <svg class="icon icon-sm"><use href="#i-external"></use></svg></a>
-              <button class="details-btn" aria-expanded="false">Details <svg class="icon icon-sm"><use href="#i-chevron"></use></svg></button>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Scroll story (CRED-style scroll disclosure) ===== -->
-    <section class="scroll-story" id="approach" aria-label="How I work">
-      <div class="story-track" id="storyTrack">
-        <div class="story-sticky">
-          <div class="container story-inner">
-            <span class="eyebrow">04 / My approach</span>
-            <p class="story-intro">Scroll to unfold how an idea becomes a working system.</p>
-
-            <div class="story-progress" aria-hidden="true"><span id="storyProgress"></span></div>
-
-            <div class="story-steps">
-              <article class="story-step active" data-step="0">
-                <span class="story-number">01</span>
-                <h2>Frame the <span class="gradient-text">real problem</span></h2>
-                <p>Before writing code, I write down what success looks like — a metric, a constraint, a user. For SemanticGuard that meant a measurable target: lift retrieval relevance from <strong>0.31 to 0.73</strong>.</p>
-                <span class="story-tag">Question first, model second</span>
-              </article>
-              <article class="story-step" data-step="1">
-                <span class="story-number">02</span>
-                <h2>Build the <span class="gradient-text">thin working slice</span></h2>
-                <p>End to end, not notebook-only: preprocess, train, expose an API, put a UI on it. Akshaya went from a RAG idea to FastAPI + React Native with FAISS and multi-turn context.</p>
-                <span class="story-tag">Prototype → product</span>
-              </article>
-              <article class="story-step" data-step="2">
-                <span class="story-number">03</span>
-                <h2>Measure, then <span class="gradient-text">harden</span></h2>
-                <p>F1 <strong>0.92</strong> for threat detection. <strong>84%</strong> accuracy and <strong>0.93 AUC</strong> for MRI classification. Source grounding to kill hallucinations, and zero permanent storage of user documents.</p>
-                <span class="story-tag">Numbers over narratives</span>
-              </article>
-              <article class="story-step" data-step="3">
-                <span class="story-number">04</span>
-                <h2>Ship it and <span class="gradient-text">explain it</span></h2>
-                <p>Dashboards that people can actually read. Grad-CAM, SHAP and LIME so a clinician can see why a model decided. A flagged drift vector gets repaired, not just logged.</p>
-                <span class="story-tag">Deploy + interpretability</span>
-              </article>
-            </div>
-
-            <div class="story-dots" role="group" aria-label="Approach steps">
-              <button class="story-dot active" data-goto="0" aria-label="Go to step 1" aria-current="true"></button>
-              <button class="story-dot" data-goto="1" aria-label="Go to step 2" aria-current="false"></button>
-              <button class="story-dot" data-goto="2" aria-label="Go to step 3" aria-current="false"></button>
-              <button class="story-dot" data-goto="3" aria-label="Go to step 4" aria-current="false"></button>
-            </div>
-            <div class="story-hint" aria-hidden="true">Keep scrolling to unfold <svg class="icon icon-sm"><use href="#i-chevron"></use></svg></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Skills ===== -->
-    <section class="section section-alt" id="skills">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">05 / Skills</span>
-          <h2>My <span class="gradient-text">toolkit</span></h2>
-          <p class="section-sub">The technologies and strengths I bring to a team.</p>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skills-panel reveal">
-            <div class="skill-tabs" role="tablist" aria-label="Skill categories">
-              <button class="skill-tab active" role="tab" aria-selected="true" data-tab="technical">Technical</button>
-              <button class="skill-tab" role="tab" aria-selected="false" data-tab="domain">Domain</button>
-              <button class="skill-tab" role="tab" aria-selected="false" data-tab="soft">Soft skills</button>
-            </div>
-
-            <div class="skill-panels">
-              <div class="skill-panel active" id="technical" role="tabpanel">
-                <div class="chip-cloud">
-                  <span class="skill-chip">Python</span><span class="skill-chip">SQL</span><span class="skill-chip">Shell Scripting</span>
-                  <span class="skill-chip">Wireshark</span><span class="skill-chip">MLOps</span><span class="skill-chip">Power BI</span>
-                  <span class="skill-chip">GitHub</span><span class="skill-chip">AWS</span><span class="skill-chip">Embedding Systems</span>
-                </div>
-              </div>
-              <div class="skill-panel" id="domain" role="tabpanel" hidden>
-                <div class="chip-cloud">
-                  <span class="skill-chip">Machine Learning</span><span class="skill-chip">Generative AI</span><span class="skill-chip">Computer Vision</span>
-                  <span class="skill-chip">IoT</span><span class="skill-chip">Cyber Security</span><span class="skill-chip">Data Analytics</span>
-                  <span class="skill-chip">Cloud Security</span>
-                </div>
-              </div>
-              <div class="skill-panel" id="soft" role="tabpanel" hidden>
-                <div class="chip-cloud">
-                  <span class="skill-chip">Problem Solving</span><span class="skill-chip">Analytical Thinking</span><span class="skill-chip">Adaptability</span>
-                  <span class="skill-chip">Team Ownership</span><span class="skill-chip">Data Story Telling</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="usage-panel reveal">
-            <h3>Most used across my projects</h3>
-            <p class="usage-note">Counted from the five projects above — no guessed percentages.</p>
-            <div class="usage-bars">
-              <div class="usage-item"><div class="usage-label"><span>Python</span><strong>5 projects</strong></div><div class="bar-track"><span class="bar-fill" data-width="100"></span></div></div>
-              <div class="usage-item"><div class="usage-label"><span>FastAPI</span><strong>3 projects</strong></div><div class="bar-track"><span class="bar-fill" data-width="60"></span></div></div>
-              <div class="usage-item"><div class="usage-label"><span>React / React Native</span><strong>3 projects</strong></div><div class="bar-track"><span class="bar-fill" data-width="60"></span></div></div>
-              <div class="usage-item"><div class="usage-label"><span>Flask</span><strong>2 projects</strong></div><div class="bar-track"><span class="bar-fill" data-width="40"></span></div></div>
-              <div class="usage-item"><div class="usage-label"><span>Random Forest</span><strong>2 projects</strong></div><div class="bar-track"><span class="bar-fill" data-width="40"></span></div></div>
-              <div class="usage-item"><div class="usage-label"><span>Deep Learning</span><strong>2 projects</strong></div><div class="bar-track"><span class="bar-fill" data-width="40"></span></div></div>
-            </div>
-          </div>
+        <div class="about-side">
+          <div class="edu-card reveal"><span class="mono-label">EDUCATION</span><h3>MCA · Artificial Intelligence &amp; ML</h3><p>CHRIST (Deemed to be University), Delhi NCR</p><span class="edu-meta">Jul 2025 — May 2027 (expected) · CGPA 3.68 / 4.0</span></div>
+          <div class="edu-card reveal"><span class="mono-label">EDUCATION</span><h3>BCA · Data Analytics &amp; Cyber Security</h3><p>Yenepoya (Deemed to be University)</p><span class="edu-meta">Oct 2022 — Jun 2025 · 87.7%</span></div>
+          <div class="skills-box reveal"><span class="mono-label">TOOLKIT</span><div class="tags"><span>Python</span><span>FastAPI</span><span>React</span><span>FAISS</span><span>Qdrant</span><span>PyTorch</span><span>TensorFlow</span><span>SQL</span><span>AWS</span><span>MLOps</span></div></div>
         </div>
       </div>
     </section>
 
     <!-- ===== Certifications ===== -->
-    <section class="section" id="certifications">
+    <section class="section certs" id="certifications">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">06 / Learning</span>
-          <h2>Certifications &amp; <span class="gradient-text">recognition</span></h2>
-          <p class="section-sub">Continuous learning, backed by certificates and awards.</p>
+          <span class="section-index">05 / Certifications</span>
+          <h2>Certified. <span class="muted">Curious by habit.</span></h2>
         </div>
-
         <div class="cert-grid">
-          <div class="cert-card reveal"><span class="cert-icon"><svg class="icon"><use href="#i-award"></use></svg></span><div><h3>Intel Unnati Artificial Intelligence</h3><p>Intel · 2026</p></div></div>
-          <div class="cert-card reveal"><span class="cert-icon"><svg class="icon"><use href="#i-award"></use></svg></span><div><h3>Advanced Cyber Security</h3><p>IBM · 2025</p></div></div>
-          <div class="cert-card reveal"><span class="cert-icon"><svg class="icon"><use href="#i-award"></use></svg></span><div><h3>Practical Approach to Cyber Security</h3><p>TCS · 2025</p></div></div>
-          <div class="cert-card reveal"><span class="cert-icon"><svg class="icon"><use href="#i-award"></use></svg></span><div><h3>Machine Learning for All</h3><p>University of London, Coursera · 2024</p></div></div>
-          <div class="cert-card reveal"><span class="cert-icon"><svg class="icon"><use href="#i-award"></use></svg></span><div><h3>Spark, Hadoop &amp; Snowflake for Data Engineering</h3><p>Duke University, Coursera · 2024</p></div></div>
-          <div class="cert-card reveal"><span class="cert-icon"><svg class="icon"><use href="#i-award"></use></svg></span><div><h3>Introduction to Big Data</h3><p>UC San Diego, Coursera · 2024</p></div></div>
+          <div class="cert-item reveal"><svg class="icon"><use href="#i-award"></use></svg><div><strong>Intel® Unnati Artificial Intelligence</strong><span>Intel · 2026</span></div></div>
+          <div class="cert-item reveal"><svg class="icon"><use href="#i-award"></use></svg><div><strong>Advanced Cyber Security</strong><span>IBM · 2025</span></div></div>
+          <div class="cert-item reveal"><svg class="icon"><use href="#i-award"></use></svg><div><strong>Practical Approach to Cyber Security</strong><span>TCS · 2025</span></div></div>
+          <div class="cert-item reveal"><svg class="icon"><use href="#i-award"></use></svg><div><strong>Machine Learning for All</strong><span>University of London, Coursera · 2024</span></div></div>
+          <div class="cert-item reveal"><svg class="icon"><use href="#i-award"></use></svg><div><strong>Spark, Hadoop &amp; Snowflake for Data Engineering</strong><span>Duke University, Coursera · 2024</span></div></div>
+          <div class="cert-item reveal"><svg class="icon"><use href="#i-award"></use></svg><div><strong>Introduction to Big Data</strong><span>UC San Diego, Coursera · 2024</span></div></div>
         </div>
-
-        <div class="achievement-row">
-          <div class="achievement-card reveal"><span class="trophy"><svg class="icon"><use href="#i-trophy"></use></svg></span><div><strong>Academic Excellence Award</strong><span>BCA Program · Yenepoya (Deemed to be University) · Nov 2025</span></div></div>
-          <div class="achievement-card reveal"><span class="trophy"><svg class="icon"><use href="#i-trophy"></use></svg></span><div><strong>Merit Scholarship — Top 3 of Batch</strong><span>CHRIST University</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Education ===== -->
-    <section class="section section-alt" id="education">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">07 / Education</span>
-          <h2>My <span class="gradient-text">academic journey</span></h2>
-          <p class="section-sub">The foundation behind the work.</p>
-        </div>
-
-        <div class="edu-grid">
-          <article class="edu-card reveal">
-            <span class="edu-icon"><svg class="icon"><use href="#i-graduation"></use></svg></span>
-            <span class="date-badge">Jul 2025 — May 2027 (Expected)</span>
-            <h3>MCA · CGPA 3.68 / 4.0</h3>
-            <p>CHRIST (Deemed to be University), Delhi NCR</p>
-          </article>
-          <article class="edu-card reveal">
-            <span class="edu-icon"><svg class="icon"><use href="#i-graduation"></use></svg></span>
-            <span class="date-badge">Oct 2022 — Jun 2025</span>
-            <h3>BCA · 87.7%</h3>
-            <p>Data Analytics, Cyber Security &amp; Cyber Forensic · Yenepoya (Deemed to be University)</p>
-          </article>
-          <article class="edu-card reveal">
-            <span class="edu-icon"><svg class="icon"><use href="#i-graduation"></use></svg></span>
-            <span class="date-badge">2020 — 2022</span>
-            <h3>Class XII · 89.9% &nbsp;|&nbsp; Class X · 90%</h3>
-            <p>GHSS Mezhathur, Kerala · Dr. KBMMHSS Thrithala, Kerala</p>
-          </article>
+        <div class="award-row reveal">
+          <span>🏆 Academic Excellence Award — Yenepoya (Deemed to be University), Nov 2025</span>
+          <span>🎓 Merit Scholarship, Top 3 of Batch — CHRIST University</span>
         </div>
       </div>
     </section>
 
-    <!-- ===== Scroll-to-unlock résumé ===== -->
-    <section class="unlock-section" id="unlock" aria-label="Scroll to unlock résumé">
-      <div class="unlock-track" id="unlockTrack">
-        <div class="unlock-sticky">
-          <div class="container unlock-inner">
-            <span class="eyebrow">08 / Scroll to unlock</span>
-            <h2>Keep scrolling. <span class="gradient-text">Untie the seal.</span></h2>
-
-            <div class="parcel-wrap" id="parcel" style="--p:0; --knot:0; --slip:0">
-              <div class="parcel-glow" aria-hidden="true"></div>
-
-              <div class="parcel" id="parcelBox" aria-label="Résumé parcel tied shut with rope">
-                <div class="parcel-lid">
-                  <span class="parcel-label">RÉSUMÉ · ABHINAV G</span>
-                  <svg class="icon parcel-lock"><use href="#i-lock"></use></svg>
-                  <strong id="vaultStatus">Sealed shut</strong>
-                  <span class="parcel-hint">Keep scrolling to untie the rope</span>
-                </div>
-                <div class="rope rope-h" aria-hidden="true"></div>
-                <div class="rope rope-v" aria-hidden="true"></div>
-                <div class="knot" id="knot" aria-hidden="true">
-                  <span class="haptic-ring"></span>
-                  <span class="bow bow-l"></span><span class="bow bow-r"></span>
-                  <span class="tail tail-l"></span><span class="tail tail-r"></span>
-                  <span class="knot-core"></span>
-                </div>
-              </div>
-
-              <div class="unlock-meter">
-                <div class="unlock-bar" aria-hidden="true"><span id="unlockProgress"></span></div>
-                <small id="unlockPercent">0% untied</small>
-                <button type="button" class="haptic-toggle" id="hapticToggle" hidden>📳 Tap to enable haptics</button>
-              </div>
-
-              <div class="unlocked-actions" id="unlockedActions" hidden>
-                <span class="unlocked-badge"><svg class="icon icon-sm"><use href="#i-check"></use></svg> Unsealed</span>
-                <button class="btn btn-primary" id="reopenResume">View résumé <svg class="icon icon-sm"><use href="#i-external"></use></svg></button>
-              </div>
-            </div>
-
-            <a href="assets/Abhinav_G_Resume.pdf" target="_blank" class="skip-link">No patience? Open the résumé directly <svg class="icon icon-sm"><use href="#i-arrow-right"></use></svg></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Contact ===== -->
+    <!-- ===== Contact CTA ===== -->
     <section class="section contact" id="contact">
-      <div class="container contact-grid">
+      <div class="container contact-inner">
         <div class="contact-copy reveal">
-          <span class="eyebrow">09 / Contact</span>
-          <h2>Let's build something <span class="gradient-text">meaningful</span></h2>
-          <p>Looking for an AI/ML internship or full-time role — or just want to talk about RAG, computer vision or security? My inbox is open.</p>
+          <span class="section-index">06 / Contact</span>
+          <h2>Have an opportunity <span class="gradient-text">worth building toward?</span></h2>
+          <p>AI/ML internships, full-time roles, research collaborations — or just a conversation about RAG and computer vision. My inbox is open.</p>
           <div class="contact-links">
-            <a href="mailto:abhinavgireesh013@gmail.com" class="contact-link"><span class="contact-icon"><svg class="icon"><use href="#i-mail"></use></svg></span><div><small>Email</small><strong>abhinavgireesh013@gmail.com</strong></div></a>
-            <a href="tel:+918086201772" class="contact-link"><span class="contact-icon"><svg class="icon"><use href="#i-phone"></use></svg></span><div><small>Phone</small><strong>+91 8086201772</strong></div></a>
-            <a href="https://linkedin.com/in/abhinav-g-334957321" target="_blank" rel="noopener" class="contact-link"><span class="contact-icon"><svg class="icon"><use href="#i-linkedin"></use></svg></span><div><small>LinkedIn</small><strong>linkedin.com/in/abhinav-g-334957321</strong></div></a>
-            <a href="https://github.com/abhi6744" target="_blank" rel="noopener" class="contact-link"><span class="contact-icon"><svg class="icon"><use href="#i-github"></use></svg></span><div><small>GitHub</small><strong>github.com/abhi6744</strong></div></a>
+            <a href="mailto:abhinavgireesh013@gmail.com" class="contact-link"><svg class="icon"><use href="#i-mail"></use></svg><span>abhinavgireesh013@gmail.com</span></a>
+            <a href="https://www.linkedin.com/in/abhinav-g-334957321" target="_blank" rel="noopener" class="contact-link"><svg class="icon"><use href="#i-linkedin"></use></svg><span>linkedin.com/in/abhinav-g-334957321</span></a>
+            <a href="https://github.com/abhi6744" target="_blank" rel="noopener" class="contact-link"><svg class="icon"><use href="#i-github"></use></svg><span>github.com/abhi6744</span></a>
           </div>
-          <button class="btn btn-outline copy-btn" id="copyEmail"><svg class="icon icon-sm"><use href="#i-copy"></use></svg> Copy email address</button>
+          <button class="btn btn-outline copy-btn" id="copyEmail" type="button"><svg class="icon icon-sm"><use href="#i-copy"></use></svg> Copy email address</button>
         </div>
-
         <form class="contact-form reveal" id="contactForm">
           <h3>Send a quick message</h3>
           <p class="form-note">Opens your email app with the message ready to send.</p>
@@ -591,7 +358,7 @@
             <label>Your email<input type="email" name="email" placeholder="jane@company.com" required></label>
           </div>
           <label>Subject<input type="text" name="subject" placeholder="AI/ML opportunity" required></label>
-          <label>Message<textarea name="message" rows="5" placeholder="Tell me a little about the role or idea..." required></textarea></label>
+          <label>Message<textarea name="message" rows="5" placeholder="Tell me about the role, idea or collaboration..." required></textarea></label>
           <button type="submit" class="btn btn-primary btn-full">Open email app <svg class="icon icon-sm"><use href="#i-send"></use></svg></button>
         </form>
       </div>
@@ -600,41 +367,32 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div><a href="#home" class="brand">AG<span class="brand-dot">.</span></a><p>Built with HTML, CSS &amp; JavaScript. Open source on GitHub.</p></div>
-      <div class="footer-links">
-        <a href="https://github.com/abhi6744" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/abhinav-g-334957321" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="assets/Abhinav_G_Resume.pdf" target="_blank">Résumé</a>
-      </div>
-      <p class="copyright">© <span id="year">2026</span> Abhinav G. All rights reserved.</p>
+      <a class="brand" href="#top"><span class="brand-mark">AG</span><span class="brand-name">abhinav<span>.</span>g</span></a>
+      <p>AI / ML student · Builder · Researcher</p>
+      <nav aria-label="Footer"><a href="#work">Work</a><a href="#research">Research</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+      <span class="footer-copy">© <span id="year"></span> Abhinav G</span>
     </div>
   </footer>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg class="icon"><use href="#i-arrow-up"></use></svg></button>
-  <!-- ===== Résumé popup ===== -->
-  <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" hidden>
-    <div class="modal-backdrop" data-close-modal></div>
+  <!-- ===== Research paper popup ===== -->
+  <div class="resume-modal" id="paperModal" role="dialog" aria-modal="true" aria-labelledby="paperModalTitle" hidden>
+    <div class="modal-backdrop" data-close-paper></div>
     <div class="modal-card" role="document">
       <div class="modal-head">
-        <div>
-          <span class="eyebrow">Unsealed</span>
-          <h3 id="resumeModalTitle">Abhinav G — Résumé</h3>
-        </div>
-        <button class="modal-close" id="modalClose" aria-label="Close résumé popup">
-          <svg class="icon"><use href="#i-close"></use></svg>
-        </button>
+        <div><span class="section-index">RESEARCH / 6 PAGES</span><h3 id="paperModalTitle">SemanticGuard — IEEE-format manuscript</h3></div>
+        <button class="modal-close" id="paperClose" type="button" aria-label="Close research paper popup"><svg class="icon"><use href="#i-close"></use></svg></button>
       </div>
-      <div class="modal-body">
-        <iframe src="assets/Abhinav_G_Resume.pdf" title="Abhinav G résumé PDF"></iframe>
-      </div>
+      <div class="modal-body"><iframe id="paperFrame" src="about:blank" title="SemanticGuard research paper PDF"></iframe></div>
       <div class="modal-foot">
-        <a href="assets/Abhinav_G_Resume.pdf" target="_blank" class="btn btn-primary">Open PDF in new tab <svg class="icon icon-sm"><use href="#i-external"></use></svg></a>
-        <button class="btn btn-outline" data-close-modal>Close</button>
+        <a href="assets/SemanticGuard-Research-IEEE.pdf" target="_blank" rel="noopener" class="btn btn-primary">Open paper in new tab <svg class="icon icon-sm"><use href="#i-up-right"></use></svg></a>
+        <a href="assets/SemanticGuard-Research-IEEE.pdf" download class="btn btn-outline">Download</a>
+        <button class="btn btn-outline" type="button" data-close-paper>Close</button>
       </div>
     </div>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><svg class="icon"><use href="#i-chevron"></use></svg></button>
 
   <script src="assets/js/script.js"></script>
 </body>

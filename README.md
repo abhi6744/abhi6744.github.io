@@ -1,46 +1,23 @@
-# Abhinav G — Interactive Portfolio
+# Abhinav G — Studio Portfolio
 
-A clean, light-by-default, interactive single-page portfolio built with plain HTML, CSS and JavaScript. No build step, no dependencies — just open `index.html`.
+A dark-first, editorial portfolio inspired by [theharisai.com](https://theharisai.com/), adapted for an AI/ML student and researcher.
 
-**Live:** https://abhi6744.github.io
+## Sections
+- **Hero** — oversized headline, animated orbits, quick stats (CGPA, projects, F1, paper status).
+- **Selected work** — five end-to-end projects with metrics and GitHub links.
+- **Research** — a dedicated section for *SemanticGuard*, an IEEE-format manuscript presented and awaiting publication. Includes a numbered author list (Abhinav G, Dr. Vandana Mehndiratta, Dr. Ramesh Chandra Poonia, Dr. Varuna Gupta), abstract, contributions, method pipeline, animated results bars, full abstract accordion, in-page PDF viewer and download.
+- **Résumé** — direct download/open link in the header and hero. No scroll-to-unlock interaction.
+- **Experience / About / Certifications / Contact** — student-focused narrative and links.
 
-## What's inside
+## Interactions
+- Dark/light theme toggle and crimson/violet/emerald accent switcher (persisted in `localStorage`).
+- Scroll reveal, animated counters, result bars, sticky active nav, mobile menu, back-to-top.
+- Accessible paper modal with backdrop, close button and Escape support.
 
-- **Light theme** by default, with an optional dark-mode toggle (saved in `localStorage`).
-- **Animated hero** with a rotating role line, floating tech chips and scrolling stat counters.
-- **Sticky navigation** with active-section highlighting, a "More" dropdown and a mobile menu.
-- **CRED-style scroll narrative**: four chapters pinned in place and disclosed one by one as you scroll.
-- **Scroll-to-unlock résumé**: a parcel wrapped in a textured rope with a bow and loose ends. Scrolling progressively loosens the bow, pulls the rope free, and trembles the box; haptic ticks fire on supported devices after a one-tap opt-in (browsers require a gesture). At 100% it pops the résumé into a closable modal with a "view again" button. Escape, the backdrop, and the close button all dismiss it.
-- **Filterable project grid** (RAG & LLM / Computer Vision / Security) with expandable details and direct links to the real GitHub repos.
-- **Experience timeline**, tabbed skill categories, project-based usage bars, certifications, achievements and education timeline.
-- **Contact section** with copy-to-clipboard email and a form that opens the visitor's email app with a prefilled message.
-- **Downloadable résumé** (`assets/Abhinav_G_Resume.pdf`).
-- Responsive layout, keyboard-friendly controls, ARIA labels and `prefers-reduced-motion` support.
+## Files
+- `index.html`, `assets/css/style.css`, `assets/js/script.js`
+- `assets/Abhinav_G_Resume.pdf`
+- `assets/SemanticGuard-Research-IEEE.pdf`
 
-## Run locally
-
-```bash
-git clone https://github.com/abhi6744/abhi6744.github.io.git
-cd abhi6744.github.io
-python -m http.server 8000
-```
-
-Then open http://localhost:8000. You can also just double-click `index.html`.
-
-## Deployment
-
-The `.github/workflows/deploy.yml` workflow deploys the site to GitHub Pages on every push to `main`. Pages is configured with **GitHub Actions** as the source.
-
-To deploy your own copy:
-
-1. Create a repo named `<username>.github.io`.
-2. Push this folder to the `main` branch.
-3. In **Settings → Pages**, set **Source** to **Deploy from a branch** and choose **main / root**. (The included `.github/workflows/deploy.yml` is an alternative if you prefer GitHub Actions.)
-4. Your site appears at `https://<username>.github.io`.
-
-## Contact
-
-- Email: abhinavgireesh013@gmail.com
-- Phone: +91 8086201772
-- LinkedIn: [linkedin.com/in/abhinav-g-334957321](https://linkedin.com/in/abhinav-g-334957321)
-- GitHub: [github.com/abhi6744](https://github.com/abhi6744)
+## Deploy
+Static site — no build step. Works on GitHub Pages from `main` / root.
