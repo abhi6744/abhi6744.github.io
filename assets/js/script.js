@@ -20,7 +20,7 @@
   const root = document.documentElement;
   const themeToggle = $("#themeToggle");
   const accentToggle = $("#accentToggle");
-  const accents = ["crimson", "violet", "emerald"];
+  const accents = ["crimson", "violet", "emerald", "gold"];
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
@@ -38,6 +38,19 @@
       try { localStorage.setItem("ag-accent", next); } catch (_) {}
       showToast("Accent: " + next);
     });
+  }
+
+  /* ---------- Scroll progress ---------- */
+  const progress = $("#scrollProgress");
+  if (progress) {
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const value = max > 0 ? window.scrollY / max : 0;
+      progress.style.setProperty("--progress", Math.min(1, Math.max(0, value)).toFixed(4));
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress, { passive: true });
+    updateProgress();
   }
 
   /* ---------- Mobile menu ---------- */
@@ -70,6 +83,23 @@
 
   /* ---------- Decorative tape duplicates stay out of tab order ---------- */
   $$('.tape-set[aria-hidden="true"] a').forEach((link) => link.setAttribute("tabindex", "-1"));
+
+  /* ---------- Pointer-tracked gold glow on cards ---------- */
+  if (!reducedMotion && window.matchMedia("(hover: hover)").matches) {
+    $$(".work-card, .edu-card, .cert-item").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--mx", x.toFixed(1) + "%");
+        card.style.setProperty("--my", y.toFixed(1) + "%");
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.removeProperty("--mx");
+        card.style.removeProperty("--my");
+      });
+    });
+  }
 
   /* ---------- Scroll reveal ---------- */
   const reveals = $$(".reveal");
