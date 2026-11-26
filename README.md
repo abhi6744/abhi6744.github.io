@@ -7,7 +7,7 @@ A dark-first, editorial portfolio inspired by [theharisai.com](https://theharisa
 - **Interactive tape** — two angled, opposite-scrolling bands of clickable credentials and toolkit tags that pause on hover/focus.
 - **Selected work** — five end-to-end projects with metrics and GitHub links.
 - **Research** — a dedicated section for *SemanticGuard*, an IEEE research paper presented and awaiting the publication result. Includes a numbered author list (Abhinav G, Dr. Vandana Mehndiratta, Dr. Ramesh Chandra Poonia, Dr. Varuna Gupta), abstract, contributions, method pipeline, animated results bars, full abstract accordion, in-page PDF viewer and download.
-- **Résumé** — direct download/open link in the header and hero. No scroll-to-unlock interaction.
+- **Resume** — direct download/open link in the header and hero. No scroll-to-unlock interaction.
 - **Experience / About / Certifications / Contact** — student-focused narrative and links.
 
 ## Interactions
