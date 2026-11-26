@@ -11,7 +11,7 @@ A dark-first, editorial portfolio inspired by [theharisai.com](https://theharisa
 - **Experience / About / Certifications / Contact** — student-focused narrative and links.
 
 ## Interactions
-- Dark/light theme toggle and crimson/violet/emerald/gold accent switcher (persisted in `localStorage`).
+- Dark-only design with crimson/violet/emerald/gold accent switcher (persisted in `localStorage`).
 - Warm yellow highlights, rotating hero headlines, animated gradient text, sparkling hero glows, shimmering buttons and result bars.
 - Two-band interactive tape with opposite-direction motion, clickable links, and hover/focus pause.
 - Scroll progress bar, pointer-tracked card glow, staggered hero entrance, animated counters, sticky active nav, mobile menu, back-to-top.

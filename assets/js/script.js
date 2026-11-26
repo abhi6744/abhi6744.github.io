@@ -18,18 +18,8 @@
 
   /* ---------- Theme + accent ---------- */
   const root = document.documentElement;
-  const themeToggle = $("#themeToggle");
   const accentToggle = $("#accentToggle");
   const accents = ["crimson", "violet", "emerald", "gold"];
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("ag-theme", next); } catch (_) {}
-      showToast(next === "dark" ? "Dark mode on" : "Light mode on");
-    });
-  }
   if (accentToggle) {
     accentToggle.addEventListener("click", () => {
       const current = root.getAttribute("data-accent") || "crimson";
