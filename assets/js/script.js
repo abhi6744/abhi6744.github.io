@@ -114,6 +114,24 @@
     reveals.forEach((el) => el.classList.add("in"));
   }
 
+  /* ---------- Rotating hero headline ---------- */
+  const rotator = $(".headline-rotator");
+  if (rotator && !reducedMotion) {
+    const headlines = $$(".headline", rotator);
+    if (headlines.length > 1) {
+      let active = 0;
+      window.setInterval(() => {
+        if (document.hidden) return;
+        const current = headlines[active];
+        current.classList.remove("is-active");
+        current.classList.add("is-leaving");
+        window.setTimeout(() => current.classList.remove("is-leaving"), 500);
+        active = (active + 1) % headlines.length;
+        headlines[active].classList.add("is-active");
+      }, 3400);
+    }
+  }
+
   /* ---------- Counters ---------- */
   const statList = $(".hero-stats");
   if (statList) {

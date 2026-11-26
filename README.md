@@ -3,7 +3,7 @@
 A dark-first, editorial portfolio inspired by [theharisai.com](https://theharisai.com/), adapted for an AI/ML student and researcher.
 
 ## Sections
-- **Hero** — oversized headline, staggered entrance, animated gradient and gold glows, quick stats (CGPA, projects, F1, paper status).
+- **Hero** — oversized rotating headline, staggered entrance, animated gradient and gold glows, quick stats (CGPA, projects, F1, paper status).
 - **Interactive tape** — two angled, opposite-scrolling bands of clickable credentials and toolkit tags that pause on hover/focus.
 - **Selected work** — five end-to-end projects with metrics and GitHub links.
 - **Research** — a dedicated section for *SemanticGuard*, an IEEE research paper presented and awaiting the publication result. Includes a numbered author list (Abhinav G, Dr. Vandana Mehndiratta, Dr. Ramesh Chandra Poonia, Dr. Varuna Gupta), abstract, contributions, method pipeline, animated results bars, full abstract accordion, in-page PDF viewer and download.
@@ -12,7 +12,7 @@ A dark-first, editorial portfolio inspired by [theharisai.com](https://theharisa
 
 ## Interactions
 - Dark/light theme toggle and crimson/violet/emerald/gold accent switcher (persisted in `localStorage`).
-- Warm yellow highlights, animated gradient text, sparkling hero glows, shimmering buttons and result bars.
+- Warm yellow highlights, rotating hero headlines, animated gradient text, sparkling hero glows, shimmering buttons and result bars.
 - Two-band interactive tape with opposite-direction motion, clickable links, and hover/focus pause.
 - Scroll progress bar, pointer-tracked card glow, staggered hero entrance, animated counters, sticky active nav, mobile menu, back-to-top.
 - Accessible paper modal with backdrop, close button and Escape support.
